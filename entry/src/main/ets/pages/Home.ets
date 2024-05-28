@@ -29,7 +29,7 @@ struct Home {
         }
 
         Row() {
-          Text('手机号')
+          Text('账号')
             .fontSize(20)
 
           TextInput()
@@ -71,7 +71,7 @@ struct Home {
             .width(75)
             .type(ButtonType.Capsule)
             .onClick(() => {
-              if(this.number==13695061238&&this.password=='qweasdzxc'){
+              if(this.number==123&&this.password=='aaa'){
                 console.info('Succeeded in clicking the 登录 button.')
                 router.pushUrl({ url: 'pages/Page1' }).then(() => {
                   console.info('Succeeded in jumping to the 登录 page.')
@@ -79,7 +79,6 @@ struct Home {
                   console.error(`Failed to jump to the second page.Code is ${err.code}, message is ${err.message}`)
                 })
               }
-
             })
         }.justifyContent(FlexAlign.SpaceEvenly)
         .width('100%')

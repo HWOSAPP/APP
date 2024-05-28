@@ -16,9 +16,9 @@ class furniture {
 @Component  //单个Component为组件
 struct Page {
   private furnitures: Array<furniture> = [
-    new furniture('厨房', $r('app.media.OIP_B')),
-    new furniture('客厅', $r('app.media.OIP_C')),
-    new furniture('添加家居', $r('app.media.add'))
+    new furniture('窗帘', $r('app.media.OIP_B')),
+    new furniture('风扇', $r('app.media.OIP_C')),
+    new furniture('添加家具', $r('app.media.add'))
   ]
 
   build() {
@@ -31,7 +31,7 @@ struct Page {
       //   .margin({bottom:20})
       //   .justifyContent(FlexAlign.Center)
 
-      Title({ title: '管理家居' })
+      Title({ title: '管理家具' })
 
       List({ space: 8 }) {
         ForEach(
@@ -63,14 +63,15 @@ struct Page {
                 }.backgroundColor('#EFEFEF')
                 .type(ButtonType.Normal)
                 .onClick(() => {
-                  console.info('Succeeded in clicking the 厨房 button.')
-                  router.pushUrl({ url: 'pages/kitchen' }).then(() => {
-                    console.info('Succeeded in jumping to the 厨房 page.')
+                  console.info('Succeeded in clicking the 窗帘 button.')
+                  router.pushUrl({ url: 'pages/curtain' }).then(() => {
+                    console.info('Succeeded in jumping to the 窗帘 page.')
                   }).catch((err) => {
                     console.error(`Failed to jump to the second page.Code is ${err.code}, message is ${err.message}`)
                   })
                 })
               }
+              //.onclick
             }
 
           }

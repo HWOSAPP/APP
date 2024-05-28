@@ -2,6 +2,7 @@
   "src": [
     "pages/Home",
     "pages/Page1",
-    "pages/kitchen"
+    "pages/curtain",
+    "pages/Welcome"
   ]
 }
