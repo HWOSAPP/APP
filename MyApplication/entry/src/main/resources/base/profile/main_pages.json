@@ -1,0 +1,9 @@
+{
+  "src": [
+
+    "pages/Welcome",
+    "pages/curtain",
+    "pages/Home",
+    "pages/Page1"
+  ]
+}
