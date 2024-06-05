@@ -1,7 +1,5 @@
 import router from '@ohos.router';
-import {Title} from '../components/Title_and_Back'
-
-class furniture {
+class Furniture {
   name : string
   image : Resource
 
@@ -10,15 +8,13 @@ class furniture {
     this.image = image
   }
 }
-
-
-@Entry  //页面入口
-@Component  //单个Component为组件
-export default struct Page {
-  private furnitures: Array<furniture> = [
-    new furniture('窗帘', $r('app.media.OIP_B')),
-    new furniture('风扇', $r('app.media.OIP_C')),
-    new furniture('添加家具', $r('app.media.add'))
+@Entry
+@Component
+export default struct Furniture_Import {
+  private Furnitures: Array<Furniture> = [
+    new Furniture('窗帘', $r('app.media.OIP_B')),
+    new Furniture('风扇', $r('app.media.OIP_C')),
+    new Furniture('添加家具', $r('app.media.add'))
   ]
 
   build() {
@@ -31,12 +27,10 @@ export default struct Page {
       //   .margin({bottom:20})
       //   .justifyContent(FlexAlign.Center)
 
-      Title({ title: '管理家具' })
-
       List({ space: 8 }) {
         ForEach(
-          this.furnitures,
-          (furniture: furniture) => {
+          this.Furnitures,
+          (furniture: Furniture) => {
             ListItem() {
               Column() {
                 Button() {

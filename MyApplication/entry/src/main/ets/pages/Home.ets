@@ -73,8 +73,8 @@ struct Home {
           .onClick(() => {
             if(this.number==123&&this.password=='aaa'){
               console.info('Succeeded in clicking the 登录 button.')
-              router.pushUrl({ url: 'pages/Page1' }).then(() => {
-                console.info('Succeeded in jumping to the 登录 page.')
+              router.pushUrl({ url: 'pages/Page2' }).then(() => {
+                console.info('Succeeded in jumping to the 登录 page2.')
               }).catch((err) => {
                 console.error(`Failed to jump to the second page.Code is ${err.code}, message is ${err.message}`)
               })
