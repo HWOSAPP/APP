@@ -1,0 +1,33 @@
+name: Weekly GitHub Trending
+
+on:
+  schedule:
+    # 每周一早上 9:00 (UTC+8) 运行
+    - cron: '0 1 * * 1'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  fetch-trending:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch Trending Repos
+        run: |
+          # 使用 curl 调用 GitHub Search API 获取过去7天star增长最多的项目
+          DATE=$(date -d '7 days ago' +%Y-%m-%d)
+          curl -s "https://api.github.com/search/repositories?q=created:>$DATE&sort=stars&order=desc&per_page=10" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -o trending.json
+          
+          # 这里可以添加脚本解析 JSON 并格式化输出
+          cat trending.json | jq '.items[] | {name, html_url, stargazers_count, description}'
+
+      # 可选：将结果自动创建为 Issue
+      - name: Create Issue
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "🔥 本周 GitHub 热门项目 (${{ github.run_id }})"
+          content-filepath: ./formatted_trending.md
+          labels: weekly-trending
